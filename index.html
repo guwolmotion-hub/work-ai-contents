@@ -321,6 +321,69 @@
       .grid4, .grid5, .flow { gap: 8px; }
     }
 
+    /* Small screens use a readable, vertically scrolling slide. */
+    @media screen and (max-width: 1100px) {
+      html, body { height: auto; min-height: 100%; overflow: visible; }
+      body { padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+      .deck { width: 100%; height: auto; display: block; }
+      .slide, .slide.hero {
+        width: 100%; height: auto; min-height: calc(100svh - 84px);
+        aspect-ratio: auto; padding: 24px clamp(20px, 5vw, 48px) 28px;
+        overflow: visible; box-shadow: none;
+      }
+      .slide.split.active, .slide.three.active { display: block; }
+      .topline, .footer {
+        position: relative; inset: auto; gap: 14px;
+        align-items: center; line-height: 1.6;
+      }
+      .topline { flex-wrap: wrap; margin-bottom: 32px; font-size: 11px; }
+      .brand { flex-shrink: 0; }
+      .mark { flex-shrink: 0; }
+      .footer { margin-top: 36px; font-size: 11px; }
+      .footer > span:first-child { min-width: 0; }
+      .page-no { flex-shrink: 0; }
+      .content { height: auto; min-width: 0; display: block; }
+      .content + .content { margin-top: 28px; }
+      h1, h2, h3, p, li, .caption, .emphasis, .badge-line, .footer {
+        word-break: keep-all; overflow-wrap: anywhere;
+      }
+      h1 { font-size: clamp(30px, 6.5vw, 48px); line-height: 1.25; }
+      h2 { font-size: clamp(26px, 5vw, 38px); line-height: 1.35; }
+      h3 { font-size: 19px; line-height: 1.45; }
+      h1 br, h2 br { display: none; }
+      .lead, .sub { font-size: 16px; line-height: 1.75; margin-top: 18px; }
+      .kicker { font-size: 13px; }
+      .hero-copy { width: 100%; max-width: 720px; height: auto; padding: 24px 0; }
+      .hero .topline, .hero .footer { z-index: 5; }
+      .hero-img { object-position: 65% center; }
+      .shade { background: linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.58)); }
+      .badge-line { font-size: 12px; line-height: 1.6; }
+      .grid2, .grid3, .grid4, .grid5, .axis, .flow {
+        grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: 22px;
+      }
+      .flow[style] { grid-template-columns: minmax(0, 1fr) !important; }
+      .card, .mini, .panel, .step { padding: 20px; min-width: 0; }
+      .card p, .mini p, .panel p, li { font-size: 15px; line-height: 1.75; }
+      .type-card, .revenue .mini { min-height: 0; gap: 16px; }
+      .type-card h3 { margin-bottom: 10px; }
+      .step { min-height: 0; }
+      .step span { font-size: 15px; line-height: 1.6; }
+      .axis { gap: 0; }
+      .axis > div { padding: 22px; }
+      .axis > div:first-child { border-right: 0; border-bottom: 1px solid var(--line); }
+      .emphasis { font-size: 18px; line-height: 1.65; padding: 16px 18px; }
+      .visual { min-height: 0; aspect-ratio: 4 / 3; }
+      .visual img { height: 100%; min-height: 0; }
+      .caption { font-size: 12px; line-height: 1.6; }
+      .wide { grid-column: auto; }
+      .controls {
+        right: 0; left: 0; bottom: 0; justify-content: center;
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+        background: rgba(5,5,5,.96); border-top: 1px solid var(--line-dark);
+      }
+      .controls button, .counter { height: 44px; min-width: 48px; }
+      .counter { display: flex; justify-content: center; gap: 4px; min-width: 76px; }
+    }
     @media print {
       html, body { overflow: visible; background: #fff; }
       .deck { display: block; height: auto; background: #fff; }
@@ -343,7 +406,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>사업 구상안 / 적용 가능성 검토 자료</span></div>
       <div class="hero-copy">
         <div class="badge-line">WORK AI CONTENTS · 가칭</div>
-        <h1>AI 활용교육 및<br />브랜드 영상 콘텐츠<br />제작 서비스</h1>
+        <h1>AI 활용교육 및<br /> 브랜드 영상 콘텐츠<br /> 제작 서비스</h1>
         <p class="sub">기업의 실무에 AI를 적용하고, 제품과 브랜드를 더 설득력 있게 보여주는 교육·콘텐츠 제작 결합형 사업모델</p>
         <div class="chips">
           <span class="chip">AI 기업교육</span><span class="chip">개인 맞춤교육</span><span class="chip">제품 홍보영상</span><span class="chip">브랜드 콘텐츠</span><span class="chip">숏폼 광고영상</span><span class="chip">AI·3D 비주얼 제작</span>
@@ -356,7 +419,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>출발점</span></div>
       <div class="content">
         <div class="kicker">01. Field Insight</div>
-        <h2>5년의 교육 현장에서,<br />AI를 배우고 활용하려는<br />목적의 변화를 보았습니다</h2>
+        <h2>5년의 교육 현장에서,<br /> AI를 배우고 활용하려는<br /> 목적의 변화를 보았습니다</h2>
         <p class="lead">디자인·영상 교육 현장에서 약 5년간 다양한 학습자들을 만나며, AI 수요가 단순 기능 학습에서 업무·사업·콘텐츠 제작에 직접 쓰는 방향으로 이동하는 흐름을 확인했습니다.</p>
         <div class="emphasis">AI를 배우려는 이유는 다양하지만, 결국 고객이 원하는 것은 자신의 목적에 맞는 실제 결과물입니다.</div>
       </div>
@@ -374,7 +437,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>필요한 두 가지</span></div>
       <div class="content">
         <div class="kicker">02. Two Needs</div>
-        <h2>기업과 사업자는<br />업무 활용과 콘텐츠 제작을<br />함께 필요로 합니다</h2>
+        <h2>기업과 사업자는<br /> 업무 활용과 콘텐츠 제작을<br /> 함께 필요로 합니다</h2>
         <div class="grid2">
           <div class="card"><h3><span class="label">내부</span>업무를 위한 AI 활용</h3><ul><li>반복되는 문서 및 이메일 작성</li><li>제품 설명과 자료 정리</li><li>홍보 아이디어와 콘텐츠 기획</li><li>직원별 AI 활용 역량 강화</li><li>제한된 인력 안에서 업무 효율 개선</li></ul></div>
           <div class="card"><h3><span class="label">외부</span>홍보를 위한 영상 콘텐츠</h3><ul><li>제품을 매력적으로 보여주는 홍보영상</li><li>브랜드 이미지를 전달하는 비주얼 콘텐츠</li><li>신제품 출시와 온라인 홍보용 숏폼 영상</li><li>전시회·영업활동에 활용할 소개영상</li><li>홈페이지와 SNS에 게시할 지속 콘텐츠</li></ul></div>
@@ -388,7 +451,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>사업모델</span></div>
       <div class="content">
         <div class="kicker">03. Business Model</div>
-        <h2>AI 교육과 영상 콘텐츠 제작을<br />두 개의 핵심 축으로 제공합니다</h2>
+        <h2>AI 교육과 영상 콘텐츠 제작을<br /> 두 개의 핵심 축으로 제공합니다</h2>
         <p class="lead">직원과 개인이 AI를 실제 목적에 맞게 활용하도록 교육하는 동시에, 기업과 브랜드가 외부에 보여줄 제품·홍보 영상 콘텐츠를 전문적으로 제작합니다.</p>
         <div class="axis">
           <div><h3><span class="label">01</span>AI 활용교육</h3><ul><li>기업 직원 대상 업무활용 교육</li><li>개인 목적 맞춤형 AI 교육</li><li>이미지·영상 제작 AI 실습</li><li>업무별 템플릿과 안전한 활용 가이드</li></ul></div>
@@ -403,7 +466,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>핵심 서비스 01</span></div>
       <div class="content">
         <div class="kicker">04. AI Education</div>
-        <h2>업무와 콘텐츠 제작에<br />직접 활용할 수 있는<br />AI 교육</h2>
+        <h2>업무와 콘텐츠 제작에<br /> 직접 활용할 수 있는<br /> AI 교육</h2>
         <p class="lead">단순히 AI 기능을 설명하는 교육이 아니라, 직원과 개인이 자신의 목적에 맞춰 실제 업무와 이미지·영상 콘텐츠 제작에 활용할 수 있도록 교육합니다.</p>
         <div class="emphasis">배우고 끝나는 교육이 아니라, 직접 활용하고 만들어보는 교육입니다.</div>
       </div>
@@ -425,7 +488,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>핵심 서비스 02</span></div>
       <div class="content">
         <div class="kicker">05. Video Production</div>
-        <h2>제품과 브랜드를<br />더 매력적으로 보여주는<br />영상 콘텐츠 제작</h2>
+        <h2>제품과 브랜드를<br /> 더 매력적으로 보여주는<br /> 영상 콘텐츠 제작</h2>
         <p class="lead">AI, 3D, 모션그래픽, 영상 연출 역량을 활용하여 기업과 브랜드의 제품을 더 전문적이고 설득력 있게 보여주는 영상 콘텐츠를 제작합니다.</p>
         <div class="emphasis">제품은 존재하는 것만으로 충분하지 않습니다. 고객에게 매력적으로 보여져야 합니다.</div>
       </div>
@@ -443,7 +506,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>영상 콘텐츠 유형</span></div>
       <div class="content">
         <div class="kicker">06. Content Types</div>
-        <h2>목적에 따라 달라지는<br />브랜드 영상 콘텐츠</h2>
+        <h2>목적에 따라 달라지는<br /> 브랜드 영상 콘텐츠</h2>
         <div class="grid5">
           <div class="card type-card"><div><b>TYPE 01</b><h3>제품 홍보영상</h3><p>제품의 질감, 패키지, 사용감, 핵심 특징을 감각적인 영상으로 표현합니다.</p></div><p>홈페이지 / SNS / 광고</p></div>
           <div class="card type-card"><div><b>TYPE 02</b><h3>브랜드 무드영상</h3><p>브랜드의 분위기와 이미지를 전달하는 짧고 인상적인 비주얼입니다.</p></div><p>브랜드 소개 / 런칭</p></div>
@@ -460,7 +523,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>연결 구조</span></div>
       <div class="content">
         <div class="kicker">07. Connected Flow</div>
-        <h2>교육으로 내부 활용을 돕고,<br />영상 제작으로 외부 경쟁력을 높입니다</h2>
+        <h2>교육으로 내부 활용을 돕고,<br /> 영상 제작으로 외부 경쟁력을 높입니다</h2>
         <p class="lead">AI 교육과 영상 제작은 별개가 아니라, 기업의 내부 업무와 외부 홍보를 함께 개선하는 연결 구조입니다.</p>
         <div class="grid2">
           <div class="mini"><h3>내부 활용</h3><ul><li>문서 작성</li><li>제품 설명문 초안</li><li>홍보 아이디어 정리</li><li>직원의 AI 이해도 향상</li></ul></div>
@@ -485,7 +548,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>가상 적용사례</span></div>
       <div class="content">
         <div class="kicker">08. Virtual Scenario</div>
-        <h2>제품·브랜드 기업에 적용한다면<br />교육과 영상 제작이 이렇게 연결됩니다</h2>
+        <h2>제품·브랜드 기업에 적용한다면<br /> 교육과 영상 제작이 이렇게 연결됩니다</h2>
         <div class="grid2">
           <div class="card"><h3>생활용품·펫용품 브랜드 A사</h3><ul><li>제품사진은 있으나 고급 홍보영상이 부족</li><li>직원들이 제품 설명과 거래처 메일을 반복 작성</li><li>온라인 홍보와 바이어 미팅용 콘텐츠가 필요</li><li>내부 직원들은 AI 활용방식이 막막한 상태</li></ul></div>
           <div class="visual"><img src="assets/luxury-product-hero.png" alt="생활용품과 브랜드 제품의 고급 광고영상 프레임" /><div class="caption">After: 제품 홍보영상, 숏폼 광고영상, 고급 제품 비주얼 활용 가능</div></div>
@@ -504,7 +567,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>수익 구조</span></div>
       <div class="content">
         <div class="kicker">09. Revenue Structure</div>
-        <h2>교육으로 접점을 만들고,<br />영상 제작과 콘텐츠 운영으로 확장합니다</h2>
+        <h2>교육으로 접점을 만들고,<br /> 영상 제작과 콘텐츠 운영으로 확장합니다</h2>
         <p class="lead">교육을 통해 고객의 목적과 기업의 제품을 이해하고, 전문 영상 콘텐츠 제작과 후속 운영으로 확장하는 구조를 지향합니다.</p>
         <div class="grid4 revenue">
           <div class="mini"><div class="num">01</div><h3>개인 맞춤형 AI 교육</h3><p>업무 활용, 사업 홍보, 이미지·영상 제작, 개인 콘텐츠 제작</p></div>
@@ -521,7 +584,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>초기 실행계획</span></div>
       <div class="content">
         <div class="kicker">10. Pilot Model</div>
-        <h2>초기에는 교육과 영상 제작을<br />작은 범위에서 함께 검증합니다</h2>
+        <h2>초기에는 교육과 영상 제작을<br /> 작은 범위에서 함께 검증합니다</h2>
         <p class="lead">처음부터 대규모 시스템 구축이나 복잡한 마케팅 운영을 목표로 하지 않고, AI 활용교육과 영상 콘텐츠 제작이 함께 가치 있게 느껴지는지 검증합니다.</p>
         <div class="flow" style="grid-template-columns:repeat(5,minmax(0,1fr));">
           <div class="step"><strong>상담</strong><span>제품·홍보상황 확인</span></div>
@@ -544,7 +607,7 @@
       <div class="topline"><span class="brand"><span class="mark">W</span>WORK AI CONTENTS</span><span>의견 및 상담 요청</span></div>
       <div class="hero-copy">
         <div class="badge-line">AI는 활용할 수 있게, 브랜드는 보여질 수 있게</div>
-        <h1>AI 활용교육부터<br />제품·브랜드 영상<br />콘텐츠 제작까지.</h1>
+        <h1>AI 활용교육부터<br /> 제품·브랜드 영상<br /> 콘텐츠 제작까지.</h1>
         <p class="sub">업무 또는 사업에서 AI를 활용해보고 싶은 영역, 제품이나 브랜드를 영상 콘텐츠로 보여주고 싶은 필요가 있다면 적용 가능성과 제작 방향을 함께 검토할 수 있습니다.</p>
         <div class="chips"><span class="chip">WORK AI CONTENTS</span><span class="chip">AI 활용교육</span><span class="chip">브랜드 영상 콘텐츠 제작</span><span class="chip">가칭</span></div>
       </div>
@@ -568,6 +631,7 @@
     function show(nextIndex) {
       index = (nextIndex + slides.length) % slides.length;
       slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      window.scrollTo(0, 0);
       now.textContent = String(index + 1);
       history.replaceState(null, '', `#${index + 1}`);
     }
